@@ -26,6 +26,36 @@ export default {
     fontFamily: {
       sans: ['Roboto', 'sans-serif'],
     },
+    fontSize: {
+      xs: [
+        '0.75rem',
+        {
+          lineHeight: '130%',
+          fontWeight: '700',
+        },
+      ],
+      s: [
+        '0.875rem',
+        {
+          lineHeight: '130%',
+          fontWeight: '400',
+        },
+      ],
+      m: [
+        '1rem',
+        {
+          lineHeight: '130%',
+          fontWeight: '400',
+        },
+      ],
+      l: [
+        '1.25rem',
+        {
+          lineHeight: '130%',
+          fontWeight: '400',
+        },
+      ],
+    },
   },
   plugins: [],
 }
