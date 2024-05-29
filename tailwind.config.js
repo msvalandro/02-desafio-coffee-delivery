@@ -24,7 +24,8 @@ export default {
       white: '#FFFFFF',
     },
     fontFamily: {
-      sans: ['Roboto', 'sans-serif'],
+      text: ['Roboto', 'sans-serif'],
+      title: ["'Baloo 2'", 'sans-serif'],
     },
     fontSize: {
       xs: [
@@ -53,6 +54,42 @@ export default {
         {
           lineHeight: '130%',
           fontWeight: '400',
+        },
+      ],
+
+      'title-xs': [
+        '1.125rem',
+        {
+          lineHeight: '130%',
+          fontWeight: '700',
+        },
+      ],
+      'title-s': [
+        '1.25rem',
+        {
+          lineHeight: '130%',
+          fontWeight: '700',
+        },
+      ],
+      'title-m': [
+        '1.5rem',
+        {
+          lineHeight: '130%',
+          fontWeight: '700',
+        },
+      ],
+      'title-l': [
+        '2rem',
+        {
+          lineHeight: '130%',
+          fontWeight: '800',
+        },
+      ],
+      'title-xl': [
+        '3rem',
+        {
+          lineHeight: '130%',
+          fontWeight: '800',
         },
       ],
     },
