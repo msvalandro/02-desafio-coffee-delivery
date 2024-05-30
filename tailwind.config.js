@@ -93,6 +93,11 @@ export default {
         },
       ],
     },
+    extend: {
+      backgroundImage: {
+        intro: "url('./src/assets/background.png')",
+      },
+    },
   },
   plugins: [],
 }
