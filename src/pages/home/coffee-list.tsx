@@ -169,7 +169,7 @@ export function CoffeeList() {
               className="-translate-y-5"
             />
 
-            <div className="mt-3">
+            <div className="mt-3 flex gap-1">
               {coffee.tags.map((tag) => (
                 <span
                   key={tag}
