@@ -4,7 +4,7 @@ import coffeeImg from '../../assets/coffee-intro.png'
 
 export function Intro() {
   return (
-    <div className="flex justify-between px-40 py-24">
+    <div className="flex justify-between py-24">
       <div className="mr-14">
         <div>
           <h1 className="text-title-xl font-title mb-4 text-base-title">
@@ -26,6 +26,7 @@ export function Intro() {
                 className="text-background"
               />
             </div>
+
             <p className="text-m text-base-text">Compra simples e segura</p>
           </div>
 
@@ -33,6 +34,7 @@ export function Intro() {
             <div className="mr-3 flex h-[32px] w-[32px] items-center justify-center rounded-full bg-base-text">
               <Package weight="fill" size={16} className="text-background" />
             </div>
+
             <p className="text-m text-base-text">
               Embalagem mantém o café intacto
             </p>
@@ -42,6 +44,7 @@ export function Intro() {
             <div className="mr-3 flex h-[32px] w-[32px] items-center justify-center rounded-full bg-yellow">
               <Timer weight="fill" size={16} className="text-background" />
             </div>
+
             <p className="text-m text-base-text">Entrega rápida e rastreada</p>
           </div>
 
@@ -49,6 +52,7 @@ export function Intro() {
             <div className="mr-3 flex h-[32px] w-[32px] items-center justify-center rounded-full bg-purple">
               <Coffee weight="fill" size={16} className="text-background" />
             </div>
+
             <p className="text-m text-base-text">
               O café chega fresquinho até você
             </p>
