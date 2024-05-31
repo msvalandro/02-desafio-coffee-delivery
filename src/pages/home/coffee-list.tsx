@@ -1,4 +1,4 @@
-import { Minus, Plus, ShoppingCart } from '@phosphor-icons/react'
+import { ShoppingCart } from '@phosphor-icons/react'
 
 import americanoImg from '../../assets/americano.png'
 import arabeImg from '../../assets/arabe.png'
@@ -14,6 +14,7 @@ import irlandesImg from '../../assets/irlandes.png'
 import latteImg from '../../assets/latte.png'
 import macchiatoImg from '../../assets/macchiato.png'
 import mocaccinoImg from '../../assets/mochaccino.png'
+import { Counter } from '../../components/counter'
 
 const data = [
   {
@@ -151,9 +152,9 @@ const data = [
 export function CoffeeList() {
   return (
     <>
-      <h1 className="font-title text-title-l text-base-subtitle">
+      <h2 className="font-title text-title-l text-base-subtitle">
         Nossos cafés
-      </h1>
+      </h2>
 
       <ul className="mt-12 grid grid-cols-4 gap-10">
         {data.map((coffee) => (
@@ -196,21 +197,7 @@ export function CoffeeList() {
                 </strong>
               </span>
 
-              <div className="ml-auto flex h-full items-center rounded-md bg-base-button px-2">
-                <Minus
-                  weight="bold"
-                  size={14}
-                  className="cursor-pointer text-purple"
-                />
-                <span className="mx-1 inline-block w-[20px] text-center text-m text-base-text">
-                  {coffee.quantity}
-                </span>
-                <Plus
-                  weight="bold"
-                  size={14}
-                  className="cursor-pointer text-purple"
-                />
-              </div>
+              <Counter quantity={coffee.quantity} tailwindClasses="ml-auto" />
 
               <button className="ml-2 flex h-full w-[38px] items-center justify-center rounded-md bg-purple-dark hover:bg-purple">
                 <ShoppingCart
