@@ -4,12 +4,12 @@ import coffeeImg from '../../assets/coffee-intro.png'
 
 export function Intro() {
   return (
-    <div className="flex justify-between py-24">
-      <div className="bg-intro absolute inset-0 h-[544px] w-full bg-cover bg-no-repeat blur-3xl"></div>
+    <div className="relative flex justify-between py-24">
+      <div className="absolute inset-0 h-[544px] w-full bg-intro bg-cover bg-no-repeat blur-3xl"></div>
 
       <div className="mr-14">
         <div>
-          <h1 className="text-title-xl font-title mb-4 text-base-title">
+          <h1 className="mb-4 font-title text-title-xl text-base-title">
             Encontre o café perfeito para qualquer hora do dia
           </h1>
 

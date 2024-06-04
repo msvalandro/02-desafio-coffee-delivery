@@ -5,7 +5,7 @@ import deliveryImg from '../assets/delivery.png'
 export function Confirmed() {
   return (
     <div className="mx-auto my-0 mb-40 mt-20 max-w-[1120px]">
-      <h1 className="text-title-l font-title text-yellow-dark">
+      <h1 className="font-title text-title-l text-yellow-dark">
         Uhu! Pedido confirmado
       </h1>
       <p className="text-base-l text-l">

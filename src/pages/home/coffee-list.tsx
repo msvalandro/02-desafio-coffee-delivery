@@ -1,5 +1,3 @@
-import { ShoppingCart } from '@phosphor-icons/react'
-
 import americanoImg from '../../assets/americano.png'
 import arabeImg from '../../assets/arabe.png'
 import cafeComLeiteImg from '../../assets/cafe-com-leite.png'
@@ -14,7 +12,7 @@ import irlandesImg from '../../assets/irlandes.png'
 import latteImg from '../../assets/latte.png'
 import macchiatoImg from '../../assets/macchiato.png'
 import mocaccinoImg from '../../assets/mochaccino.png'
-import { Counter } from '../../components/counter'
+import { CoffeeItem } from './coffee-item'
 
 const data = [
   {
@@ -158,56 +156,7 @@ export function CoffeeList() {
 
       <ul className="mt-12 grid grid-cols-4 gap-10">
         {data.map((coffee) => (
-          <li
-            key={coffee.id}
-            className="flex w-64 flex-col items-center rounded-bl-[36px] rounded-br-md rounded-tl-md rounded-tr-[36px] bg-base-card px-5 pb-5"
-          >
-            <img
-              src={coffee.imageUrl}
-              alt={coffee.name}
-              width={120}
-              height={120}
-              className="-translate-y-5"
-            />
-
-            <div className="mt-3 flex gap-1">
-              {coffee.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="flex h-[21px] items-center rounded-full bg-yellow-light p-2 text-[0.625rem] font-bold uppercase text-yellow-dark"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            <h3 className="text-title-s font-title mt-4 text-base-subtitle">
-              {coffee.name}
-            </h3>
-
-            <p className="mt-2 text-center text-s text-base-label">
-              {coffee.description}
-            </p>
-
-            <footer className="mt-8 flex h-[38px] w-full items-center justify-between px-1">
-              <span className="text-s text-base-text">
-                R${' '}
-                <strong className="font-title text-title-m">
-                  {coffee.price.toFixed(2)}
-                </strong>
-              </span>
-
-              <Counter quantity={coffee.quantity} tailwindClasses="ml-auto" />
-
-              <button className="ml-2 flex h-full w-[38px] items-center justify-center rounded-md bg-purple-dark hover:bg-purple">
-                <ShoppingCart
-                  weight="fill"
-                  size={22}
-                  className="text-base-card"
-                />
-              </button>
-            </footer>
-          </li>
+          <CoffeeItem key={coffee.id} {...coffee} />
         ))}
       </ul>
     </>
