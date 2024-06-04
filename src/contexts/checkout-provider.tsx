@@ -1,12 +1,10 @@
-import {
-  createContext,
-  PropsWithChildren,
-  useEffect,
-  useReducer,
-  useState,
-} from 'react'
+import { createContext, PropsWithChildren, useEffect, useReducer } from 'react'
 
-import { addItemToCartAction } from '../reducers/checkout/actions'
+import {
+  addItemToCartAction,
+  removeItemFromCartAction,
+  updateQuantityOfItemAction,
+} from '../reducers/checkout/actions'
 import { CartItem, checkoutReducer } from '../reducers/checkout/reducers'
 
 interface CheckoutContextType {
@@ -14,6 +12,8 @@ interface CheckoutContextType {
   numberOfItems: number
   subtotal: number
   addItemToCart: (item: CartItem) => void
+  updateQuantityOfItem: (id: number, quantity: number) => void
+  removeItemFromCart: (id: number) => void
 }
 
 export const CheckoutContext = createContext({} as CheckoutContextType)
@@ -47,6 +47,14 @@ export function CheckoutProvider({ children }: CheckoutProviderProps) {
     dispatch(addItemToCartAction(item))
   }
 
+  function updateQuantityOfItem(id: number, quantity: number) {
+    dispatch(updateQuantityOfItemAction(id, quantity))
+  }
+
+  function removeItemFromCart(id: number) {
+    dispatch(removeItemFromCartAction(id))
+  }
+
   useEffect(() => {
     const stateJSON = JSON.stringify(checkoutState)
 
@@ -55,7 +63,14 @@ export function CheckoutProvider({ children }: CheckoutProviderProps) {
 
   return (
     <CheckoutContext.Provider
-      value={{ numberOfItems, items, addItemToCart, subtotal }}
+      value={{
+        items,
+        numberOfItems,
+        subtotal,
+        addItemToCart,
+        updateQuantityOfItem,
+        removeItemFromCart,
+      }}
     >
       {children}
     </CheckoutContext.Provider>

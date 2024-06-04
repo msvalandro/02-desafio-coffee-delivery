@@ -6,7 +6,8 @@ import { Counter } from '../../components/counter'
 import { CheckoutContext } from '../../contexts/checkout-provider'
 
 export function ConfirmOrder() {
-  const { items, subtotal } = useContext(CheckoutContext)
+  const { items, subtotal, updateQuantityOfItem, removeItemFromCart } =
+    useContext(CheckoutContext)
 
   const navigate = useNavigate()
 
@@ -21,6 +22,20 @@ export function ConfirmOrder() {
 
   function handleConfirmOrder() {
     navigate('/checkout/success')
+  }
+
+  function handleDecrementQuantity(id: number, quantity: number) {
+    const newQuantity = Math.max(1, quantity - 1)
+
+    updateQuantityOfItem(id, newQuantity)
+  }
+
+  function handleIncrementQuantity(id: number, quantity: number) {
+    updateQuantityOfItem(id, quantity + 1)
+  }
+
+  function handleRemoveItem(id: number) {
+    removeItemFromCart(id)
   }
 
   return (
@@ -44,9 +59,20 @@ export function ConfirmOrder() {
                   <p className="text-m text-base-subtitle">{item.name}</p>
 
                   <div className="flex h-[32px] justify-between gap-2">
-                    <Counter quantity={item.quantity} />
+                    <Counter
+                      quantity={item.quantity}
+                      onDecrement={() =>
+                        handleDecrementQuantity(item.id, item.quantity)
+                      }
+                      onIncrement={() =>
+                        handleIncrementQuantity(item.id, item.quantity)
+                      }
+                    />
 
-                    <button className="flex flex-1 items-center rounded-md bg-base-button px-2 text-xs font-normal uppercase text-base-text">
+                    <button
+                      className="flex flex-1 items-center rounded-md bg-base-button px-2 text-xs font-normal uppercase text-base-text"
+                      onClick={() => handleRemoveItem(item.id)}
+                    >
                       <Trash size={20} className="mr-1 text-purple" />
                       remover
                     </button>
