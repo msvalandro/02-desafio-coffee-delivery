@@ -12,7 +12,7 @@ export const router = createBrowserRouter([
     children: [
       { path: '/', element: <Home /> },
       { path: '/checkout', element: <Checkout /> },
-      { path: '/confirmed', element: <Confirmed /> },
+      { path: '/checkout/success', element: <Confirmed /> },
     ],
   },
 ])

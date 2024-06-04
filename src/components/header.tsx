@@ -1,5 +1,6 @@
 import { MapPin, ShoppingCart } from '@phosphor-icons/react'
 import { useContext } from 'react'
+import { NavLink } from 'react-router-dom'
 
 import logoImg from '../assets/logo.svg'
 import { CheckoutContext } from '../contexts/checkout-provider'
@@ -9,7 +10,9 @@ export function Header() {
 
   return (
     <header className="sticky left-0 top-0 z-10 flex h-[104px] items-center justify-between bg-background px-40">
-      <img src={logoImg} alt="" />
+      <NavLink to="/">
+        <img src={logoImg} alt="" />
+      </NavLink>
 
       <div className="flex h-[38px]">
         <div className="mr-3 flex h-full items-center justify-center rounded-md bg-purple-light px-2">
@@ -25,7 +28,13 @@ export function Header() {
             </span>
           )}
 
-          <ShoppingCart weight="fill" size={22} className="text-yellow-dark" />
+          <NavLink to="/checkout">
+            <ShoppingCart
+              weight="fill"
+              size={22}
+              className="text-yellow-dark"
+            />
+          </NavLink>
         </button>
       </div>
     </header>

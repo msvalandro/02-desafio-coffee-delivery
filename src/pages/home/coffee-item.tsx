@@ -81,7 +81,7 @@ export function CoffeeItem({
 
         <button
           className="ml-2 flex h-full w-[38px] items-center justify-center rounded-md bg-purple-dark hover:bg-purple"
-          onClick={() => addItemToCart({ id, name, price, quantity })}
+          onClick={() => addItemToCart({ id, name, price, quantity, imageUrl })}
         >
           <ShoppingCart weight="fill" size={22} className="text-base-card" />
         </button>
