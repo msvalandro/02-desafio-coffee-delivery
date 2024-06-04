@@ -18,7 +18,7 @@ interface CheckoutState {
 
 interface Action {
   type: ActionTypes
-  payload: unknown
+  payload?: unknown
 }
 
 export function checkoutReducer(
@@ -83,6 +83,13 @@ export function checkoutReducer(
         draft.items.splice(itemIndex, 1)
       })
     }
+
+    case ActionTypes.CLEAN_CART:
+      return {
+        items: [],
+        numberOfItems: 0,
+        subtotal: 0,
+      }
 
     default:
       return state

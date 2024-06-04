@@ -2,6 +2,7 @@ import { createContext, PropsWithChildren, useEffect, useReducer } from 'react'
 
 import {
   addItemToCartAction,
+  cleanCartAction,
   removeItemFromCartAction,
   updateQuantityOfItemAction,
 } from '../reducers/checkout/actions'
@@ -14,6 +15,7 @@ interface CheckoutContextType {
   addItemToCart: (item: CartItem) => void
   updateQuantityOfItem: (id: number, quantity: number) => void
   removeItemFromCart: (id: number) => void
+  cleanCart: () => void
 }
 
 export const CheckoutContext = createContext({} as CheckoutContextType)
@@ -55,6 +57,10 @@ export function CheckoutProvider({ children }: CheckoutProviderProps) {
     dispatch(removeItemFromCartAction(id))
   }
 
+  function cleanCart() {
+    dispatch(cleanCartAction())
+  }
+
   useEffect(() => {
     const stateJSON = JSON.stringify(checkoutState)
 
@@ -70,6 +76,7 @@ export function CheckoutProvider({ children }: CheckoutProviderProps) {
         addItemToCart,
         updateQuantityOfItem,
         removeItemFromCart,
+        cleanCart,
       }}
     >
       {children}

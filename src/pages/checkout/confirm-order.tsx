@@ -6,8 +6,13 @@ import { Counter } from '../../components/counter'
 import { CheckoutContext } from '../../contexts/checkout-provider'
 
 export function ConfirmOrder() {
-  const { items, subtotal, updateQuantityOfItem, removeItemFromCart } =
-    useContext(CheckoutContext)
+  const {
+    items,
+    subtotal,
+    updateQuantityOfItem,
+    removeItemFromCart,
+    cleanCart,
+  } = useContext(CheckoutContext)
 
   const navigate = useNavigate()
 
@@ -21,6 +26,7 @@ export function ConfirmOrder() {
   }
 
   function handleConfirmOrder() {
+    cleanCart()
     navigate('/checkout/success')
   }
 
